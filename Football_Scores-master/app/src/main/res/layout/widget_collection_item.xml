@@ -2,8 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:elevation="4dp"
     android:background="@drawable/list_item"
+    android:id="@+id/widget_collection_list_item"
     >
     <LinearLayout
         android:orientation="horizontal"
@@ -74,11 +74,4 @@
                 android:id="@+id/away_name"/>
         </LinearLayout>
     </LinearLayout>
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/details_fragment_container">
-    </FrameLayout>
 </LinearLayout>
-
-
