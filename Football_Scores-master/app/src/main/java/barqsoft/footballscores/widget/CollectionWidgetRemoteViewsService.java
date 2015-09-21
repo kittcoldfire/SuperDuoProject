@@ -38,8 +38,8 @@ public class CollectionWidgetRemoteViewsService extends RemoteViewsService {
                 }
                 final long identityToken = Binder.clearCallingIdentity();
 
-                //get tomorrows date for use in the data retrieval
-                Date fragmentdate = new Date(System.currentTimeMillis()+((1)*86400000));
+                //get todays date for use in the data retrieval
+                Date fragmentdate = new Date(System.currentTimeMillis());
                 SimpleDateFormat mformat = new SimpleDateFormat("yyyy-MM-dd");
                 String tomorrow = mformat.format(fragmentdate);
 
