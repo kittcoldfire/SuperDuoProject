@@ -80,9 +80,12 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerF
 
         }
 
+        //Hide the keyboard when switching between fragments
+        Utilities.checkKeyboardFocus(this);
+
+        //Removed adding to backstack, as this is not an expected behavior, this way the fragments only have one instance
         fragmentManager.beginTransaction()
                 .replace(R.id.container, nextFragment)
-                .addToBackStack((String) title)
                 .commit();
     }
 
@@ -144,6 +147,10 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerF
         if(findViewById(R.id.right_container) != null){
             id = R.id.right_container;
         }
+
+        //Hide the keyboard when switching between fragments
+        Utilities.checkKeyboardFocus(this);
+
         getSupportFragmentManager().beginTransaction()
                 .replace(id, fragment)
                 .addToBackStack("Book Detail")
@@ -172,7 +179,8 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerF
 
     @Override
     public void onBackPressed() {
-        if(getSupportFragmentManager().getBackStackEntryCount()<2){
+        //Lowered the count to 1 to stop the app from exiting when pressing the back button from the details view
+        if(getSupportFragmentManager().getBackStackEntryCount()<1){
             finish();
         }
         super.onBackPressed();
